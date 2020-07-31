@@ -1,8 +1,7 @@
-/* global hexo */
-
 'use strict';
 
-hexo.extend.helper.register('next_font', function() {
+// https://developers.google.com/fonts/docs/getting_started
+module.exports = function() {
   const config = this.theme.font;
 
   if (!config || !config.enable) return '';
@@ -18,9 +17,9 @@ hexo.extend.helper.register('next_font', function() {
     }
   });
 
-  fontFamilies = fontFamilies.map(name => name.trim() + fontStyles);
+  fontFamilies = fontFamilies.map(name => name.trim().replace(/\s/g, '+') + fontStyles);
   fontFamilies = [...new Set(fontFamilies)].join('|');
 
   // Merge extra parameters to the final processed font string
   return fontFamilies ? `<link rel="stylesheet" href="${fontHost}/css?family=${fontFamilies}&display=swap&subset=latin,latin-ext">` : '';
-});
+};
