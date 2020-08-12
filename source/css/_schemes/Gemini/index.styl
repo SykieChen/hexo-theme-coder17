@@ -59,11 +59,6 @@
   margin-top: 1em;
 }
 
-// Top main padding from header to posts (default 40px).
-.content {
-  padding-top: initial;
-}
-
 // Post delimiters.
 .post-eof {
   display: none;
@@ -85,7 +80,7 @@
   box-shadow: $box-shadow-inner;
 
   // Adapt submenu(s) with post-blocks.
-  + .content .post-block {
+  + .post-block {
     box-shadow: $box-shadow;
     margin-top: $sidebar-offset;
 
