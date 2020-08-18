@@ -1,3 +1,82 @@
+<table width="100%" border="0">
+  <tr>
+    <td style="text-align:left; border:0">
+      <div class="copyright">
+        {% set copyright_year = date(null, 'YYYY') %}
+        &copy;
+        {% if theme.footer.since and theme.footer.since != copyright_year %}{{ theme.footer.since }}
+          –
+        {% endif %}
+        <span itemprop="copyrightYear">{{ copyright_year }}</span>
+        <span class="with-love">
+          <i class="{{ theme.footer.icon.name }}"></i>
+        </span>
+        <span class="author" itemprop="copyrightHolder">{{ theme.footer.copyright or author }}</span>
+
+        {%- if config.symbols_count_time.total_symbols %}
+          <span class="post-meta-divider">|</span>
+          <span class="post-meta-item-icon">
+            <i class="fa fa-chart-area"></i>
+          </span>
+          {%- if theme.symbols_count_time.item_text_total %}
+            <span class="post-meta-item-text">{{ __('symbols_count_time.count_total') + __('symbol.colon') }}</span>
+          {%- endif %}
+          <span title="{{ __('symbols_count_time.count_total') }}">{{ symbolsCountTotal(site) }}</span>
+        {%- endif %}
+
+        {%- if config.symbols_count_time.total_time %}
+          <span class="post-meta-divider">|</span>
+          <span class="post-meta-item-icon">
+            <i class="fa fa-coffee"></i>
+          </span>
+          {%- if theme.symbols_count_time.item_text_total %}
+            <span class="post-meta-item-text">{{ __('symbols_count_time.time_total') }}
+              &asymp;</span>
+          {%- endif %}
+          <span title="{{ __('symbols_count_time.time_total') }}">{{ symbolsTimeTotal(site, config.symbols_count_time.awl, config.symbols_count_time.wpm, __('symbols_count_time.time_minutes')) }}</span>
+        {%- endif %}
+
+      </div>
+      {%- if theme.footer.powered %}
+        <div class="powered-by">
+          {%- set next_site = 'https://theme-next.js.org' %}
+          {%- if theme.scheme !== 'Gemini' %}
+            {%- set next_site = 'https://theme-next.js.org/' + theme.scheme | lower + '/' %}
+          {%- endif %}
+          {{- __('footer.powered', next_url('https://hexo.io', 'Hexo', {class: 'theme-link'}) + ' & ' + next_url(next_site, 'NexT.' + theme.scheme, {class: 'theme-link'})) }}
+
+          {%- if theme.creative_commons.license %}
+            {%- set ccIcon = '<i class="fab fa-fw fa-creative-commons"></i>' %}
+            {%- set ccText = theme.creative_commons.license | upper %}
+            <span class="post-meta-divider">|</span>
+            {{- __('Licensed under %s', next_url(ccURL, ccIcon + ccText)) }}
+          {%- endif %}
+        </div>
+      {%- endif %}
+    </td>
+    <td style="text-align:right; border:0">
+      <div style="font-family: FontAwesome;font-size: 20px;">
+        <a href="http://weibo.com/3904642734" title="微博" target="_blank">&#61834;</a>&nbsp;
+        <a href="http://www.renren.com/287137027" title="人人" target="_blank">&#61835;</a>&nbsp;
+        <a href="http://user.qzone.qq.com/525969441" title="QQ空间" target="_blank">&#61910;</a>&nbsp;
+        <a href="https://www.facebook.com/sykiechencixi" title="Facebook" target="_blank">&#62000;</a>&nbsp;
+        <a href="https://twitter.com/HKEY_C17" title="twitter" target="_blank">&#61593;</a>&nbsp;
+        <a href="http://www.linkedin.com/in/sykiechen" title="LinkedIn" target="_blank">&#61665;</a>&nbsp;
+        <a href="https://github.com/sykiechen" title="GitHub" target="_blank">&#61595;</a>&nbsp;
+        <a href="https://plus.google.com/118157846818083514683" title="Google+" target="_blank">&#61653;</a>
+      </div><br>
+      {{- next_url('/sitemap.xml', '网站地图') }}
+      <span class="post-meta-divider">|</span>
+      {{- next_url('/atom.xml', '订阅本站') }}
+      <span class="post-meta-divider">|</span>
+      {{- next_url('mailto:chen17@coder17.com', '联系博主') }}
+      <span class="post-meta-divider">|</span>
+      {{- next_url('https://transparencyreport.google.com/traffic/overview', 'ICP 备案你妹') }}
+
+    </td>
+  </tr>
+</table>
+
 {%- if theme.footer.beian.enable %}
   <div class="beian">
     {{- next_url('http://www.beian.miit.gov.cn', theme.footer.beian.icp + ' ') }}
@@ -7,48 +86,6 @@
     {%- if theme.footer.beian.gongan_id and theme.footer.beian.gongan_num %}
       {{- next_url('http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=' + theme.footer.beian.gongan_id, theme.footer.beian.gongan_num + ' ') }}
     {%- endif %}
-  </div>
-{%- endif %}
-
-<div class="copyright">
-  {% set copyright_year = date(null, 'YYYY') %}
-  &copy; {% if theme.footer.since and theme.footer.since != copyright_year %}{{ theme.footer.since }} – {% endif %}
-  <span itemprop="copyrightYear">{{ copyright_year }}</span>
-  <span class="with-love">
-    <i class="{{ theme.footer.icon.name }}"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">{{ theme.footer.copyright or author }}</span>
-
-  {%- if config.symbols_count_time.total_symbols %}
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item-icon">
-      <i class="fa fa-chart-area"></i>
-    </span>
-    {%- if theme.symbols_count_time.item_text_total %}
-      <span class="post-meta-item-text">{{ __('symbols_count_time.count_total') + __('symbol.colon') }}</span>
-    {%- endif %}
-    <span title="{{ __('symbols_count_time.count_total') }}">{{ symbolsCountTotal(site) }}</span>
-  {%- endif %}
-
-  {%- if config.symbols_count_time.total_time %}
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item-icon">
-      <i class="fa fa-coffee"></i>
-    </span>
-    {%- if theme.symbols_count_time.item_text_total %}
-      <span class="post-meta-item-text">{{ __('symbols_count_time.time_total') }} &asymp;</span>
-    {%- endif %}
-    <span title="{{ __('symbols_count_time.time_total') }}">{{ symbolsTimeTotal(site, config.symbols_count_time.awl, config.symbols_count_time.wpm, __('symbols_count_time.time_minutes')) }}</span>
-  {%- endif %}
-</div>
-
-{%- if theme.footer.powered %}
-  <div class="powered-by">
-    {%- set next_site = 'https://theme-next.js.org' %}
-    {%- if theme.scheme !== 'Gemini' %}
-      {%- set next_site = 'https://theme-next.js.org/' + theme.scheme | lower + '/' %}
-    {%- endif %}
-    {{- __('footer.powered', next_url('https://hexo.io', 'Hexo', {class: 'theme-link'}) + ' & ' + next_url(next_site, 'NexT.' + theme.scheme, {class: 'theme-link'})) }}
   </div>
 {%- endif %}
 
