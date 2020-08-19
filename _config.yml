@@ -65,15 +65,13 @@ footer:
 
   # Powered by Hexo & NexT
   powered: true
+  license_text: "Licensed under %s"
 
   # Links
-  license_text: "Licensed under %s"
-  sitemap_url: /sitemap.xml
-  sitemap_text: 网站地图
-  feed_url: /atom.xml
-  feed_text: 订阅本站
-  contact_url: /about
-  contact_text: 联系博主
+  links:
+    # Sitemap: /sitemap.xml
+    # RSS: /atom.xml
+    # Contact: /about
 
   # Beian ICP and gongan information for Chinese users. See: http://www.beian.miit.gov.cn, http://www.beian.gov.cn
   beian:

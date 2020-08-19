@@ -66,13 +66,18 @@
           {%- endfor %}
         {%- endif %}
       </div>
-      {{- next_url(theme.footer.sitemap_url, theme.footer.sitemap_text) }}
-      <span class="post-meta-divider">|</span>
-      {{- next_url(theme.footer.feed_url, theme.footer.feed_text) }}
-      <span class="post-meta-divider">|</span>
-      {{- next_url(theme.footer.contact_url, theme.footer.contact_text) }}
+      {%- if theme.footer.links %}
+        {%- for name, link in theme.footer.links %}
+          {{- next_url(link, name) }}
+          {%- if not loop.last %}
+            <span class="post-meta-divider">|</span>
+          {%- endif %}
+        {%- endfor %}
+      {%- endif %}
       {%- if theme.footer.beian.enable %}
-        <span class="post-meta-divider">|</span>
+        {%- if theme.footer.links %}
+          <span class="post-meta-divider">|</span>
+        {%- endif %}
         {%- set icp_url = 'http://www.beian.miit.gov.cn' %}
         {%- if theme.footer.beian.icp_url %}
           {%- set icp_url = theme.footer.beian.icp_url %}
