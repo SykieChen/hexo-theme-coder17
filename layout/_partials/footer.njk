@@ -49,45 +49,47 @@
             {%- set ccIcon = '<i class="fab fa-fw fa-creative-commons"></i>' %}
             {%- set ccText = theme.creative_commons.license | upper %}
             <span class="post-meta-divider">|</span>
-            {{- __('Licensed under %s', next_url(ccURL, ccIcon + ccText)) }}
+            {{- __(theme.footer.license_text, next_url(ccURL, ccIcon + ccText)) }}
           {%- endif %}
         </div>
       {%- endif %}
     </td>
     <td style="text-align:right; border:0">
-      <div style="font-family: FontAwesome;font-size: 20px;">
-        <a href="http://weibo.com/3904642734" title="微博" target="_blank">&#61834;</a>&nbsp;
-        <a href="http://www.renren.com/287137027" title="人人" target="_blank">&#61835;</a>&nbsp;
-        <a href="http://user.qzone.qq.com/525969441" title="QQ空间" target="_blank">&#61910;</a>&nbsp;
-        <a href="https://www.facebook.com/sykiechencixi" title="Facebook" target="_blank">&#62000;</a>&nbsp;
-        <a href="https://twitter.com/HKEY_C17" title="twitter" target="_blank">&#61593;</a>&nbsp;
-        <a href="http://www.linkedin.com/in/sykiechen" title="LinkedIn" target="_blank">&#61665;</a>&nbsp;
-        <a href="https://github.com/sykiechen" title="GitHub" target="_blank">&#61595;</a>&nbsp;
-        <a href="https://plus.google.com/118157846818083514683" title="Google+" target="_blank">&#61653;</a>
-      </div><br>
-      {{- next_url('/sitemap.xml', '网站地图') }}
+      <div class="links-of-author" style="font-size: 20px; justify-content: flex-end; line-height: 24px;">
+        {%- if theme.social %}
+          {%- for name, link in theme.social %}
+            <span class="links-of-author-item">
+              {%- set sidebarURL = link.split('||')[0] | trim %}
+              {%- set sidebarIcon = '<i class="' + link.split('||')[1] | trim + ' fa-fw"></i>' %}
+              {{ next_url(sidebarURL, sidebarIcon, {title: name + ' → ' + sidebarURL}) }}
+            </span>
+          {%- endfor %}
+        {%- endif %}
+      </div>
+      {{- next_url(theme.footer.sitemap_url, theme.footer.sitemap_text) }}
       <span class="post-meta-divider">|</span>
-      {{- next_url('/atom.xml', '订阅本站') }}
+      {{- next_url(theme.footer.feed_url, theme.footer.feed_text) }}
       <span class="post-meta-divider">|</span>
-      {{- next_url('mailto:chen17@coder17.com', '联系博主') }}
-      <span class="post-meta-divider">|</span>
-      {{- next_url('https://transparencyreport.google.com/traffic/overview', 'ICP 备案你妹') }}
+      {{- next_url(theme.footer.contact_url, theme.footer.contact_text) }}
+      {%- if theme.footer.beian.enable %}
+        <span class="post-meta-divider">|</span>
+        {%- set icp_url = 'http://www.beian.miit.gov.cn' %}
+        {%- if theme.footer.beian.icp_url %}
+          {%- set icp_url = theme.footer.beian.icp_url %}
+        {%- endif %}
+        {{- next_url(icp_url, theme.footer.beian.icp) }}
+        {%- if theme.footer.beian.gongan_icon_url %}
+          <span class="post-meta-divider">|</span>
+          <img src="{{ url_for(theme.footer.beian.gongan_icon_url) }}" style="display: inline-block;">
+        {%- endif %}
+        {%- if theme.footer.beian.gongan_id and theme.footer.beian.gongan_num %}
+          {{- next_url('http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=' + theme.footer.beian.gongan_id, theme.footer.beian.gongan_num + ' ') }}
+        {%- endif %}
+      {%- endif %}
 
     </td>
   </tr>
 </table>
-
-{%- if theme.footer.beian.enable %}
-  <div class="beian">
-    {{- next_url('http://www.beian.miit.gov.cn', theme.footer.beian.icp + ' ') }}
-    {%- if theme.footer.beian.gongan_icon_url %}
-      <img src="{{ url_for(theme.footer.beian.gongan_icon_url) }}" style="display: inline-block;">
-    {%- endif %}
-    {%- if theme.footer.beian.gongan_id and theme.footer.beian.gongan_num %}
-      {{- next_url('http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=' + theme.footer.beian.gongan_id, theme.footer.beian.gongan_num + ' ') }}
-    {%- endif %}
-  </div>
-{%- endif %}
 
 {%- if theme.add_this_id %}
   <div class="addthis_inline_share_toolbox">

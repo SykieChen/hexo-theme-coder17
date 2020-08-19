@@ -66,11 +66,22 @@ footer:
   # Powered by Hexo & NexT
   powered: true
 
+  # Links
+  license_text: "Licensed under %s"
+  sitemap_url: /sitemap.xml
+  sitemap_text: 网站地图
+  feed_url: /atom.xml
+  feed_text: 订阅本站
+  contact_url: /about
+  contact_text: 联系博主
+
   # Beian ICP and gongan information for Chinese users. See: http://www.beian.miit.gov.cn, http://www.beian.gov.cn
   beian:
     enable: false
     icp:
     # The digit in the num of gongan beian.
+    icp_url:
+    # default is http://www.beian.miit.gov.cn
     gongan_id:
     # The full num of gongan beian.
     gongan_num:
@@ -185,6 +196,8 @@ social:
   #YouTube: https://youtube.com/yourname || fab fa-youtube
   #Instagram: https://instagram.com/yourname || fab fa-instagram
   #Skype: skype:yourname?call|chat || fab fa-skype
+  #RSS: /atom.xml || fas fa-rss
+
 
 social_icons:
   enable: true
