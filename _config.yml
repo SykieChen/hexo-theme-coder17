@@ -54,7 +54,8 @@ favicon:
   medium: /images/favicon-32x32-next.png
   apple_touch_icon: /images/apple-touch-icon-next.png
   safari_pinned_tab: /images/logo.svg
-  #android_manifest: /manifest.json
+  #android_manifest: /images/manifest.json
+  #ms_browserconfig: /images/browserconfig.xml
 
 # Custom Logo (Warning: Do not support scheme Mist)
 custom_logo: #/uploads/custom-logo.jpg
@@ -152,6 +153,8 @@ social:
   #YouTube: https://youtube.com/yourname || fab fa-youtube
   #Instagram: https://instagram.com/yourname || fab fa-instagram
   #Skype: skype:yourname?call|chat || fab fa-skype
+  #RSS: /atom.xml || fas fa-rss
+
 
 social_icons:
   enable: true
@@ -200,8 +203,8 @@ chat:
 language_switcher: false
 
 footer:
-  # Specify the year when the site was setup. If not defined, current year will be used.
-  #since: 2020
+  # Specify the date when the site was setup. If not defined, current year will be used.
+  #since: 2015
 
   # Icon between year and copyright info.
   icon:
@@ -217,12 +220,21 @@ footer:
 
   # Powered by Hexo & NexT
   powered: true
+  license_text: "Licensed under %s"
+
+  # Links
+  links:
+    # Sitemap: /sitemap.xml
+    # RSS: /atom.xml
+    # Contact: /about
 
   # Beian ICP and gongan information for Chinese users. See: https://beian.miit.gov.cn, http://www.beian.gov.cn
   beian:
     enable: false
     icp:
     # The digit in the num of gongan beian.
+    icp_url:
+    # default is http://www.beian.miit.gov.cn
     gongan_id:
     # The full num of gongan beian.
     gongan_num:

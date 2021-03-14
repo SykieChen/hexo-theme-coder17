@@ -45,6 +45,9 @@
         </div>
       {%- endif %}
     </div>
+    <div class="sidebar-inner" style="margin-top: 12px;">
+        {{ partial('_partials/sidebar/blogroll.njk', {}, {cache: theme.cache.enable}) }}
+    </div>
   </aside>
   <div class="sidebar-dimmer"></div>
 {% endmacro %}

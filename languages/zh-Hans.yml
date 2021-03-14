@@ -1,0 +1,107 @@
+---
+name: 中文 Hans / Mixed
+
+title:
+  archive: Archive
+  category: Category
+  tag: Tag
+  schedule: Schedule
+
+menu:
+  home: Home
+  archives: Archives
+  categories: Categories
+  tags: Tags
+  about: About
+  search: Search
+  schedule: Schedule
+  sitemap: Sitemap
+  commonweal: 公益 404
+
+sidebar:
+  overview: 站点概览
+  toc: 文章目录
+
+  post:
+    posted: Posted on
+    edited: Edited on
+    created: Created
+    modified: Modified
+    edit: Edit this post
+    in: In
+    read_more: Read more
+    untitled: Untitled
+    sticky: Sticky
+    views: Views
+    related_posts: Related Posts
+    copyright:
+      author: Post author
+      link: Post link
+      license_title: Copyright Notice
+      license_content: "All articles in this blog are licensed under %s unless stating additionally."
+
+footer:
+  powered: "Powered by %s"
+  total_views: Total Views
+  total_visitors: Total Visitors
+
+counter:
+  tag_cloud:
+    zero: No tags
+    one: 1 tag in total
+    other: "%d tags in total"
+
+  categories:
+    zero: No categories
+    one: 1 category in total
+    other: "%d categories in total"
+
+  archive_posts:
+    zero: No posts.
+    one: 1 post.
+    other: "%d posts in total."
+
+state:
+  posts: Posts
+  tags: Tags
+  categories: Categories
+
+search:
+  placeholder: Searching...
+
+cheers:
+  um: 嗯..
+  ok: 还行
+  nice: 不错
+  good: 很好
+  great: 非常好
+  excellent: 太棒了
+
+keep_on: Keep on posting.
+
+symbol:
+  comma: "，"
+  period: "。"
+  colon: "："
+
+reward:
+  donate: 赞赏
+  wechatpay: 微信
+  alipay: 支付宝
+  paypal: PayPal
+  bitcoin: Bitcoin
+
+follow_me:
+  welcome: 欢迎关注我的其它发布渠道
+
+accessibility:
+  nav_toggle: 切换导航栏
+  prev_page: 上一页
+  next_page: 下一页
+
+symbols_count_time:
+  count: 字数
+  count_total: 站点总字数
+  time: 阅读时间
+  time_total: 站点阅读时长
+  time_minutes: 分

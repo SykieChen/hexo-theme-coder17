@@ -1,0 +1,17 @@
+
+{# Blogroll #}
+{%- if theme.links %}
+  <div class="links-of-blogroll animated">
+    <div class="links-of-blogroll-title">
+      {%- if theme.links_settings.icon %}<i class="{{ theme.links_settings.icon }} fa-fw"></i>{%- endif %}
+      {{ theme.links_settings.title }}
+    </div>
+    <ul class="links-of-blogroll-list">
+      {%- for blogrollText, blogrollURL in theme.links %}
+        <li class="links-of-blogroll-item">
+          {{ next_url(blogrollURL, blogrollText, {title: blogrollURL}) }}
+        </li>
+      {%- endfor %}
+    </ul>
+  </div>
+{%- endif %}
